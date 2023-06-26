@@ -4,7 +4,6 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import '../CSS/Menu.css';
 
 function Menu() {
     return (
@@ -12,9 +11,9 @@ function Menu() {
             <p style={{fontSize: 50, textAlign: "center"}}>Welcome to TravelTrekker! Plan your next Trip today!</p>
             <Container>
                 <ButtonGroup size="lg" aria-label="Basic example">
-                    <Button variant="secondary">Left</Button>
-                    <Button variant="secondary">Middle</Button>
-                    <Button variant="secondary">Right</Button>
+                    <Button variant="secondary" href="/Reviews">Reviews</Button>
+                    <Button variant="secondary" href="/Trips">Trips</Button>
+                    <Button variant="secondary" href="/About">About</Button>
                 </ButtonGroup>
                 <Row>
                     <Col>
