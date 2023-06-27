@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/Card';
 
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import '../CSS/Menu.css';
 
 function Trips() {
   return (
