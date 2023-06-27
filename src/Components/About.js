@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Adarsh from './Adarsh.jpeg';
 import Austin from './Austin.JPG';
 import Alaric from './Alaric.JPG';
+import Sule from './Sule.jpg';
 
 function About() {
     return (
@@ -42,6 +43,17 @@ function About() {
                                 <Card.Text>Software Developer, Incoming Senior Class of 2024, UTCS</Card.Text>
                                 <Card.Text>Backend: writing flask, writing up the technical report</Card.Text>
                                 <Card.Text>number of commits: 1, number of issues: 0, number of unit tests: 0 </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col>
+                        <Card>
+                            <Card.Img variant="top" src={Sule} style={{width: "auto", height: "400px"}}/>
+                            <Card.Body>
+                                <Card.Title>Sule Tekin</Card.Title>
+                                <Card.Text>Software Developer, Senior Class of 2023, UTCS</Card.Text>
+                                <Card.Text>Frontend Developer: I collaborated with another frontend developer to design and organize the functionality of the website using React that's integrated with Bootstrap. </Card.Text>
+                                <Card.Text>number of commits: 15, number of issues: 0, number of unit tests: 0 </Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>

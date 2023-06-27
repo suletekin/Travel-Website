@@ -18,7 +18,6 @@ import Photo10 from "./Photos/new zealand.jpeg";
 
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import '../CSS/Menu.css';
 
 function Countries() {
   return (
