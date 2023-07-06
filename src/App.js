@@ -20,7 +20,6 @@ function App() {
             <Route path="/Trips" element={<Trips />} />
             <Route path="/About" element={<About />} />
             <Route path="/Cities" element={<Cities />} />
-            <Route path="/Countries" element={<Countries />} />
           </Routes>
         </BrowserRouter>
       </div>
