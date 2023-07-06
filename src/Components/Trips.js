@@ -10,8 +10,12 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 function Trips() {
   return (
-    <div>
-        <p style={{fontSize: 50, textAlign: "center"}}>Here are the Top 10 Bucket List Travel Places in the World!</p>
+    <div className= "backgroundTrip">
+        <br></br>
+        <div style={{ border: '10px solid white', padding: '1px', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+        <p style={{fontSize: 50, textAlign: "center", fontWeight: "800", margin: "auto"}}>Discover Unforgettable Travel Experiences: Our Featured Trips</p>
+        </div>
+        <br></br>
         <Container>
             <Row>
                 <Col>

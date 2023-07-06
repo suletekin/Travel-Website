@@ -10,9 +10,13 @@ import Sule from './Sule.jpg';
 
 function About() {
     return (
-        <div>
-            <Container>
+        <div className='backgroundAbout'>
+                <br></br>
+                <div style={{ border: '10px solid white', padding: '1px', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
                 <h1 style={{textAlign: "center"}}>IDB1 Group2!</h1>
+                </div>
+                <br></br>
+            <Container>
                 <Row>
                     <Col>
                         <Card>
@@ -50,8 +54,11 @@ function About() {
                 </Row>
                 <Row>
                     <Col>
-                        <Card>
-                            <Card.Img variant="top" src={Shruti} />
+                    <br></br>
+                    <Card style={{width: "422px"}} >
+                            <div style={{width: "420px", height: "auto"} }>
+                            <Card.Img variant="top" src={Shruti}/>
+                            </div>
                             <Card.Body>
                                 <Card.Title>Shruti Raghavan</Card.Title>
                                 <Card.Text>Software Developer: Backend, Graduate Student, UTCS</Card.Text>
@@ -61,12 +68,13 @@ function About() {
                         </Card>
                     </Col>
                     <Col>
-                        <Card>
-                            <Card.Img variant="top" src={Sule} />
+                    <br></br>
+                        <Card style={{width: "400px"}} >
+                            <Card.Img variant="top" src={Sule} style={{width: "400px", height: "auto"} }/>
                             <Card.Body>
                                 <Card.Title>Sule Tekin</Card.Title>
                                 <Card.Text> Software Developer, Senior Class of 2023, UTCS</Card.Text>
-                                <Card.Text>Frontend Developer: I collaborated with another frontend developer to design and organize the functionality of the website using React that's integrated with Bootstrap.</Card.Text>
+                                <Card.Text>Frontend Developer: I collaborated to design and organize the functionality of the website using React that's integrated with Bootstrap.</Card.Text>
                                 <Card.Text>number of commits: 4, number of issues: 0, number of unit tests: 0 </Card.Text>
                             </Card.Body>
                         </Card>
