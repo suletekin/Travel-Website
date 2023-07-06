@@ -1,4 +1,39 @@
-.background {
-    background:linear-gradient(rgba(66, 232, 169, 0.5),rgba(155, 9, 155, 0.5));
+.backgroundHome {
+    background: url('./Components/Photos/santorini.avif');
     min-height: 65pc;
+    font-family: 'Bitter', serif;
+    color: black;
+    background-repeat: no-repeat;
+    background-size: 100% 80%
+}
+
+
+.backgroundReviews {
+    background: url('./Components/Photos/peakMountain.avif');
+    min-height: 65pc;
+    font-family: 'Bitter', serif;
+    color: #A9907E;
+    background-repeat: no-repeat;
+    background-size: 100% auto
+}
+
+.backgroundAbout{
+    background: linear-gradient(180deg, rgba(107,160,231,1) 40%, rgba(44,92,182,1) 73%);
+    min-height: 65pc;
+    font-family: 'Bitter', serif;
+    color: black;
+}
+
+.backgroundTrip{
+    background: url('./Components/Photos/maps.avif');
+    min-height: 65pc;
+    font-family: 'Bitter', serif;
+    color: #27374D;
+}
+
+.backgroundCities{
+    background: url('./Components/Photos/foggycity.avif');
+    min-height: 65pc;
+    font-family: 'Bitter', serif;
+    color: #27374D;
 }
