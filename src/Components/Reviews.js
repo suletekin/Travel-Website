@@ -11,7 +11,6 @@ function Reviews() {
     <div>
         <p style={{fontSize: 50, textAlign: "center"}}>Check out our customer reviewed destinations here!</p>
         <Container>
-            <img src={natureImage} alt="HI"/>
             <Row>
                 <Col>
                     <Card border={'success '} bg={'light'} text={'dark'}>
