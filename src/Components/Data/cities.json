@@ -1,0 +1,198 @@
+[
+        {
+            "geonameid": 5110302,
+            "population": 2736074,
+            "name": "Brooklyn",
+            "latitude": 40.6501,
+            "longitude": -73.94958,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-NY",
+                "geonameid": 5128638
+            }
+        },
+        {
+            "geonameid": 4887398,
+            "population": 2696555,
+            "name": "Chicago",
+            "latitude": 41.85003,
+            "longitude": -87.65005,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-IL",
+                "geonameid": 4896861
+            }
+        },
+        {
+            "geonameid": 4684888,
+            "population": 1300092,
+            "name": "Dallas",
+            "latitude": 32.78306,
+            "longitude": -96.80667,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-TX",
+                "geonameid": 4736286
+            }
+        },
+        {
+            "geonameid": 4699066,
+            "population": 2304580,
+            "name": "Houston",
+            "latitude": 29.76328,
+            "longitude": -95.36327,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-TX",
+                "geonameid": 4736286
+            }
+        },
+        {
+            "geonameid": 5368361,
+            "population": 3898747,
+            "name": "Los Angeles",
+            "latitude": 34.05223,
+            "longitude": -118.24368,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-CA",
+                "geonameid": 5332921
+            }
+        },
+        {
+            "geonameid": 5125771,
+            "population": 1487536,
+            "name": "Manhattan",
+            "latitude": 40.78343,
+            "longitude": -73.96625,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-NY",
+                "geonameid": 5128638
+            }
+        },
+        {
+            "geonameid": 5128581,
+            "population": 8804190,
+            "name": "New York",
+            "latitude": 40.71427,
+            "longitude": -74.00597,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-NY",
+                "geonameid": 5128638
+            }
+        },
+        {
+            "geonameid": 4560349,
+            "population": 1576251,
+            "name": "Philadelphia",
+            "latitude": 39.95238,
+            "longitude": -75.16362,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-PA",
+                "geonameid": 6254927
+            }
+        },
+        {
+            "geonameid": 5308655,
+            "population": 1608139,
+            "name": "Phoenix",
+            "latitude": 33.44838,
+            "longitude": -112.07404,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-AZ",
+                "geonameid": 5551752
+            }
+        },
+        {
+            "geonameid": 5133273,
+            "population": 2272771,
+            "name": "Queens",
+            "latitude": 40.68149,
+            "longitude": -73.83652,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-NY",
+                "geonameid": 5128638
+            }
+        },
+        {
+            "geonameid": 4726206,
+            "population": 1434625,
+            "name": "San Antonio",
+            "latitude": 29.42412,
+            "longitude": -98.49363,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-TX",
+                "geonameid": 4736286
+            }
+        },
+        {
+            "geonameid": 5391811,
+            "population": 1394928,
+            "name": "San Diego",
+            "latitude": 32.71571,
+            "longitude": -117.16472,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-CA",
+                "geonameid": 5332921
+            }
+        },
+        {
+            "geonameid": 5392171,
+            "population": 1026908,
+            "name": "San Jose",
+            "latitude": 37.33939,
+            "longitude": -121.89496,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-CA",
+                "geonameid": 5332921
+            }
+        },
+        {
+            "geonameid": 5110266,
+            "population": 1385108,
+            "name": "The Bronx",
+            "latitude": 40.84985,
+            "longitude": -73.86641,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-NY",
+                "geonameid": 5128638
+            }
+        }
+]
