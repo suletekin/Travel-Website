@@ -7,7 +7,6 @@
     background-size: 100% 80%
 }
 
-
 .backgroundReviews {
     background: url('./Components/Photos/peakMountain.avif');
     min-height: 65pc;
@@ -32,6 +31,13 @@
 }
 
 .backgroundCities{
+    background: url('./Components/Photos/foggycity.avif');
+    min-height: 65pc;
+    font-family: 'Bitter', serif;
+    color: #27374D;
+}
+
+.backgroundAttractions{
     background: url('./Components/Photos/foggycity.avif');
     min-height: 65pc;
     font-family: 'Bitter', serif;
