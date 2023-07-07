@@ -1,5 +1,5 @@
 .backgroundHome {
-    background: url('./Components/Photos/santorini.avif');
+    background: url('./Components/Photos/santorini.jpg');
     min-height: 65pc;
     font-family: 'Bitter', serif;
     color: black;
@@ -8,7 +8,7 @@
 }
 
 .backgroundReviews {
-    background: url('./Components/Photos/peakMountain.avif');
+    background: url('./Components/Photos/peakMountain.jpg');
     min-height: 65pc;
     font-family: 'Bitter', serif;
     color: #A9907E;
@@ -24,21 +24,21 @@
 }
 
 .backgroundTrip{
-    background: url('./Components/Photos/maps.avif');
+    background: url('./Components/Photos/maps.jpg');
     min-height: 65pc;
     font-family: 'Bitter', serif;
     color: #27374D;
 }
 
 .backgroundCities{
-    background: url('./Components/Photos/foggycity.avif');
+    background: url('./Components/Photos/foggycity.jpg');
     min-height: 65pc;
     font-family: 'Bitter', serif;
     color: #27374D;
 }
 
 .backgroundAttractions{
-    background: url('./Components/Photos/cityMarket.avif');
+    background: url('./Components/Photos/cityMarket.jpg');
     min-height: 65pc;
     font-family: 'Bitter', serif;
     color: #27374D;
