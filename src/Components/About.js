@@ -84,7 +84,24 @@ function About() {
                             <Card.Body>
                                 <Card.Title>Project Stats</Card.Title>
                                 <Card.Text>
-                                    <a href="https://documenter.getpostman.com/view/28202650/2s93zFYevj">Link to Postman Documentation!</a>
+                                    <h2>GitLab and Postman: </h2>
+                                    <li><a href="https://crimson-comet-979094.postman.co/workspace/triptrekker~2c44ba28-7f11-46e6-abc6-20d8e504aa3a/collection/28202650-cdc97c95-3697-4013-8fd0-ed08eb71b5d8%22%3E">Postman API</a></li>
+                                    <li><a href="https://gitlab.com/austincnguyen/trip-trekker/-/issues%22%3E">GitLab Issue Tracker</a></li>
+                                    <li><a href="https://gitlab.com/austincnguyen/trip-trekker%22%3E">GitLab Repo</a></li>
+                                    <li><a href="https://gitlab.com/austincnguyen/trip-trekker/-/wikis/Technical-Report-Phase-2%22%3E">GitLab Wiki</a></li>
+                                    <h2>Data: </h2>
+                                    <li><a href="https://docs.developer.yelp.com%22%3Eyelp/"> API</a></li>
+                                        <li><a href="https://rapidapi.com/natkapral/api/countries-cities%22%3E">Rapid API</a></li>
+                                        <p>
+                    We created an API in our backend folder that would scrape information from our data sources and then populate our database 
+                    with the collected information. 
+                </p>
+                <h2>Tools: </h2>
+                <ul>
+                    <li>Front-end: React, Bootstrap, AWS Amplify</li>
+                    <li>Back-end: Postman, Flask, SQLAlchemy, PostgreSQL</li>
+                    <li>Other Tools: Visual Studio Code, GitLab, NameCheap</li>
+                </ul>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
