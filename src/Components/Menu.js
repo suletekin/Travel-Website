@@ -14,8 +14,14 @@ function Menu() {
             <br></br>
             <br></br>
             <div style={{border: "10px solid white", padding: "1px", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", height: "100%",}}>
-            <p style={{ fontSize: 50, textAlign: "center", fontWeight: "800", margin: "auto"}}> Welcome to TripTrekker! Plan your next <em>Trip</em> today!</p>
+                <p style={{ fontSize: 50, textAlign: "center", fontWeight: "800", margin: "auto"}}> Welcome to TripTrekker! Plan your next <em>Trip</em> today!</p>
             </div>
+            <ButtonGroup style={{margin: "50px"}} size="lg" aria-label="Basic example">
+                    <Button variant="secondary" href="/Reviews">Cities</Button>
+                    <Button variant="secondary" href="/Reviews">Reviews</Button>
+                    <Button variant="secondary" href="/Attractions">Attractions</Button>
+                    <Button variant="secondary" href="/About">About</Button>
+            </ButtonGroup>
         </div>
 
     );
