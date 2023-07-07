@@ -79,6 +79,16 @@ function About() {
                             </Card.Body>
                         </Card>
                     </Col>
+                    <Col>
+                        <Card style={{width: "422px"}} >
+                            <Card.Body>
+                                <Card.Title>Project Stats</Card.Title>
+                                <Card.Text>
+                                    <a href="https://documenter.getpostman.com/view/28202650/2s93zFYevj">Link to Postman Documentation!</a>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
                 </Row>
             </Container>
         </div>
