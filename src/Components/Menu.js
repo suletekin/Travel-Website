@@ -13,96 +13,11 @@ function Menu() {
         <div className="backgroundHome">
             <br></br>
             <br></br>
-            <p style={{ fontFamily: 'Bitter', fontSize: 50, textAlign: "center" }}> Welcome to TripTrekker! Plan your next <em>Trip</em> today!</p>
-            <Container>
-                <ButtonGroup size="lg" aria-label="Basic example">
-                    <Button variant="secondary" href="/Reviews">Cities</Button>
-                    <Button variant="secondary" href="/Reviews">Reviews</Button>
-                    <Button variant="secondary" href="/Attractions">Attractions</Button>
-                    <Button variant="secondary" href="/About">About</Button>
-                </ButtonGroup>
-                <Row>
-                    <Col>
-                        <Card border={'dark '} bg={'light'} text={'dark'}>
-                            <Card.Body>
-                                <Card.Title>Country Name</Card.Title>
-                                <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go to Country!</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card border={'dark '} bg={'light'} text={'dark'}>
-                            <Card.Body>
-                                <Card.Title>Country Name</Card.Title>
-                                <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go to Country!</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-                <br></br>
-                <Row>
-                    <Col>
-                        <Card border={'dark '} bg={'light'} text={'dark'}>
-                            <Card.Body>
-                                <Card.Title>Country Name</Card.Title>
-                                <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go to Country!</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card border={'dark '} bg={'light'} text={'dark'}>
-                            <Card.Body>
-                                <Card.Title>Country Name</Card.Title>
-                                <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go to Country!</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-                <br></br>
-                <Row>
-                    <Col>
-                        <Card border={'dark '} bg={'light'} text={'dark'}>
-                            <Card.Body>
-                                <Card.Title>Country Name</Card.Title>
-                                <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go to Country!</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card border={'dark '} bg={'light'} text={'dark'}>
-                            <Card.Body>
-                                <Card.Title>Country Name</Card.Title>
-                                <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go to Country!</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
+            <div style={{border: "10px solid white", padding: "1px", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", height: "100%",}}>
+            <p style={{ fontSize: 50, textAlign: "center", fontWeight: "800", margin: "auto"}}> Welcome to TripTrekker! Plan your next <em>Trip</em> today!</p>
+            </div>
         </div>
+
     );
   }
   
