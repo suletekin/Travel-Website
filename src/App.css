@@ -38,8 +38,9 @@
 }
 
 .backgroundAttractions{
-    background: url('./Components/Photos/foggycity.avif');
+    background: url('./Components/Photos/cityMarket.avif');
     min-height: 65pc;
     font-family: 'Bitter', serif;
     color: #27374D;
 }
+
