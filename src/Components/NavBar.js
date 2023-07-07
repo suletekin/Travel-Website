@@ -12,10 +12,9 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="home">Home</Nav.Link>
-            <Nav.Link href="Reviews">Reviews</Nav.Link>
-            <Nav.Link href="Trips">Trips</Nav.Link>
             <Nav.Link href="Cities">Cities</Nav.Link>
             <Nav.Link href="Attractions">Attractions</Nav.Link>
+            <Nav.Link href="Reviews">Reviews</Nav.Link>
             <Nav.Link href="About">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
