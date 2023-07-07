@@ -1,42 +1,50 @@
-import Col from "react-bootstrap/Col";
-import NavBar from "./NavBar";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Card from 'react-bootstrap/Card';
-import React, { Component } from "react";
+import React from "react";
+import { Col, Container, Row, Card } from "react-bootstrap";
 import data from "./Data/attractions_Boston.json";
 
-function Trips() {
-
-    return (
-        <div className= "backgroundCities">
-        <br></br>
-        <div style={{ border: '10px solid white', padding: '1px', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-        <p style= {{fontSize: 50, textAlign: "center", fontWeight: "800", margin: "auto"}}>Discover Top-Rated Attractions Around the World!</p>
-        </div>
-        <br></br>
-        <div>
-            {
-                data.map((data, i) => (
-                    <Card style={{width: "80%", margin: "100px"}} border={'success '} bg={'light'} text={'dark'} key={i}>
-                        <Card.Body>
-                            <Card.Title>{data.name}</Card.Title>
-                            <Card.Img src={data.image_url} style={{width: '200px'}}/>
-                            <Card.Text>
-                                <li>Rating: {data.rating}</li>
-                                <li>Price: {data.price}</li>
-                                <li>Location: {data.location.address1}</li>
-                                <li>Phone Number: {data.phone}</li>
-                                <li><a href="Cities">City: {data.location.city}</a></li>
-                                <li><a href="Reviews">Ratings: {data.rating}</a></li>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                ))
-            }
-        </div>        
+function Attractions() {
+  return (
+    <div className="backgroundAttractions">
+      <br />
+      <div style={{border: "10px solid white", padding: "1px", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", height: "100%",}}>
+       <p style={{ fontSize: 50, textAlign: "center", fontWeight: "800", margin: "auto"}}> Discover Top-Rated Attractions!</p>
+      </div>
+      <br />
+      <Container>
+        <Row>
+          {data.map((attraction, i) => (
+            <Col key={i} xs={12} sm={6} md={4}>
+              <Card
+                style={{ width: "100%", margin: "20px" }}
+                border={"success"}
+                bg={"light"}
+                text={"dark"}
+              >
+                <Card.Body>
+                  <Card.Title>{attraction.name}</Card.Title>
+                  <Card.Img src={attraction.image_url} style={{ width: "200px" }} />
+                  <Card.Text>
+                    <ul>
+                      <li>Rating: {attraction.rating}</li>
+                      <li>Price: {attraction.price}</li>
+                      <li>Location: {attraction.location.address1}</li>
+                      <li>Phone Number: {attraction.phone}</li>
+                      <li>
+                        <a href="Cities">City: {attraction.location.city}</a>
+                      </li>
+                      <li>
+                        <a href="Reviews">Ratings: {attraction.rating}</a>
+                      </li>
+                    </ul>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
-    )
+  );
 }
 
-export default Trips;
+export default Attractions;
