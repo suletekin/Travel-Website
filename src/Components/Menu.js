@@ -16,8 +16,9 @@ function Menu() {
             <p style={{ fontFamily: 'Bitter', fontSize: 50, textAlign: "center" }}> Welcome to TripTrekker! Plan your next <em>Trip</em> today!</p>
             <Container>
                 <ButtonGroup size="lg" aria-label="Basic example">
+                    <Button variant="secondary" href="/Reviews">Cities</Button>
                     <Button variant="secondary" href="/Reviews">Reviews</Button>
-                    <Button variant="secondary" href="/Trips">Trips</Button>
+                    <Button variant="secondary" href="/Attractions">Attractions</Button>
                     <Button variant="secondary" href="/About">About</Button>
                 </ButtonGroup>
                 <Row>

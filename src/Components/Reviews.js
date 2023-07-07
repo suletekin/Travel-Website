@@ -7,6 +7,8 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import natureImage from './destinationImage.jpeg';
 import '../App.css';
+import data from "./Data/Boston/6aQ3FGZYJ506O1qHQUvC5Q_boston-tea-party-ships-and-museum-boston_reviews.json";
+
 
 function Reviews() {
   return (
@@ -16,61 +18,23 @@ function Reviews() {
         <p style={{fontSize: 50, textAlign: "center", fontWeight: "800", margin: "auto"}}>Explore Our Highly-Rated Travel Destinations</p>
         </div>
         <br></br>
-        <Container>
-            <Row>
-                <Col>
-                    <Card border={'light '} bg={'light'} text={'dark'}>
+        <div>
+            {
+                data.map((data, i) => (
+                    <Card style={{width: "80%", margin: "100px"}} border={'success '} bg={'light'} text={'dark'} key={i}>
                         <Card.Body>
-                            <Card.Img></Card.Img>
-                            <Card.Title>Yosemite Park</Card.Title>
-                                <Card.Text>
-                                    Yosemite Park offers great nature views and some of the tallest trees in the world!
-                                </Card.Text>
-                            <Button variant="warning">Go to Yosemite!</Button>
+                            <Card.Title>{data.user.name}</Card.Title>
+                            <Card.Img src={data.user.image_url} style={{width: '200px'}}/>
+                            <Card.Text>
+                                <li><a href={data.url}>Link to Review!</a></li>
+                                <li>{data.text}</li>
+                                <li>Rating: {data.rating}</li>
+                            </Card.Text>
                         </Card.Body>
                     </Card>
-                </Col>
-                <Col>
-                <Card border={'light '} bg={'light'} text={'dark'}>
-                        <Card.Body>
-                            <Card.Img></Card.Img>
-                            <Card.Title>Yellowstone National Park</Card.Title>
-                                <Card.Text>
-                                    Check out the finest natural geysers in the US!
-                                </Card.Text>
-                            <Button variant="warning">Go to Yellowstone!</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-            <br></br>
-            <Row>
-                <Col>
-                <Card border={'light '} bg={'light'} text={'dark'}>
-                        <Card.Body>
-                            <Card.Img></Card.Img>
-                            <Card.Title>New York City!</Card.Title>
-                                <Card.Text>
-                                    New York City is the best urban area in the world!
-                                </Card.Text>
-                            <Button variant="warning">Go to New York City!</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                <Card border={'light '} bg={'light'} text={'dark'}>
-                        <Card.Body>
-                            <Card.Img></Card.Img>
-                            <Card.Title>Paris!</Card.Title>
-                                <Card.Text>
-                                    Relax in the city of Love!
-                                </Card.Text>
-                            <Button variant="warning">Go to Paris!</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
+                ))
+            }
+        </div>    
     </div>
   );
 }
