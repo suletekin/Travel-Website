@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 from sqlalchemy.sql import func
@@ -188,6 +188,76 @@ class attraction_review(db.Model):
 # def index():
 #     students = Student.query.all()
 #     return render_template('index.html', students=students)
+
+
+@app.route("/Reviews", methods=["GET"])
+def get_reviews():
+    # pagination for reviews
+    page = request.args.get("page", 1, type=int)
+    numPerPage = request.args.get("numPerPage", 5, type=int)
+    if numPerPage == 0:
+        numPerPage = 5
+
+    reviews = attraction_review.query.paginate(page=page, per_page=numPerPage)
+    totalNumPages = reviews.pages
+
+    review_data = []
+    for review in reviews.items:
+        review_dict = review.to_dict()
+        review_data.append(review_dict)
+
+    response = {
+        "pages": totalNumPages,
+        "data": review_data,
+    }
+
+    return jsonify(response)
+
+
+@app.route("/Cities", methods=["GET"])
+def get_cities():
+    query = db.session.query(city)
+
+    # Pagination for cities
+    page = request.args.get("page", 1, type=int)
+    per_page = request.args.get("per_page", 5, type=int)
+    if per_page == 0:
+        per_page = 5
+
+    cities = query.paginate(page=page, per_page=per_page)
+    total_pages = cities.pages
+
+    response = {
+        "pages": total_pages,
+        "data": [city.name for city in cities.items], 
+    }
+    return jsonify(response)
+
+
+@app.route("/Attractions", methods=["GET"])
+def get_attractions():
+    query = db.session.query(attraction)
+
+    # Pagination for attractions
+    page = request.args.get("page", 1, type=int)
+    per_page = request.args.get("per_page", 5, type=int)
+    if per_page == 0:
+        per_page = 5
+
+    attractions = query.paginate(page=page, per_page=per_page)
+    total_pages = attractions.pages
+
+    response = {
+        "pages": total_pages,
+        "data": [attraction.name for attraction in attractions.items], 
+    }
+    return jsonify(response)
+
+
+
+
+
+
 
 city_names = ['New York City', \
                 'Chicago', \
