@@ -39,10 +39,4 @@ function Trips() {
     )
 }
 
-<<<<<<< HEAD
-export default Attractions;
-=======
 export default Trips;
-
-
->>>>>>> 441bc9f1397a8092e0ed9938aad29fb11ec7b28d
