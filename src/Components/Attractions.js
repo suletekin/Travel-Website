@@ -20,7 +20,7 @@ class Attractions extends React.Component {
   changeCity = (event) => {
     event.preventDefault();
     // Handle the click event
-    const name = '${this.props.city}';
+    const name = this.props.city;
     console.log(name);
   };
 

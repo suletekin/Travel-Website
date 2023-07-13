@@ -12,6 +12,8 @@ def cities():
     response.headers.set('Access-Control-Allow-Origin', '*')
     response.headers.set('Access-Control-Allow-Methods', 'GET')
     return response
+    
+
 
 @app.route('/attractions', methods=['GET'])
 def attractions():
@@ -28,6 +30,7 @@ def reviews():
     response.headers.set('Access-Control-Allow-Origin', '*')
     response.headers.set('Access-Control-Allow-Methods', 'GET')
     return response
+
 
 if __name__ == '__main__':
     app.run()

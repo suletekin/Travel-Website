@@ -20,8 +20,7 @@ class Cities extends React.Component {
   changeCity = (event) => {
     event.preventDefault();
     // Handle the click event
-    this.props.setCity("Austin")
-    console.log(this.props.city);
+    this.props.setCity("Austin");
   };
 
   componentDidMount() {
