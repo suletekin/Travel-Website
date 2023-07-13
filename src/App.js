@@ -13,6 +13,11 @@ function App() {
   const [city, setCity] = useState("Chicago");
   const [attractions, setAttraction] = useState("9nUrDQ_REhU6sgcgXFAyfA");
 
+  const handleCityChange = () => {
+    setCity("Austin");
+    console.log(city);
+  }
+
   return (
       <div class="background">
         <BrowserRouter>
@@ -23,7 +28,7 @@ function App() {
             <Route path="/Reviews" element={<Reviews attractions={attractions} />} />
             <Route path="/Attractions" element={<Attractions city={city} />} />
             <Route path="/About" element={<About />} />
-            <Route path="/Cities" element={<Cities city={city} setCity={setCity} />} />
+            <Route path="/Cities" element={<Cities city={city} setCity={handleCityChange} />} />
           </Routes>
         </BrowserRouter>
       </div>
