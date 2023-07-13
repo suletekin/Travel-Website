@@ -6,8 +6,13 @@ import Cities from './Components/Cities.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import About from './Components/About.js';
+import { useState } from 'react';
 
 function App() {
+
+  const [city, setCity] = useState("Chicago");
+  const [attractions, setAttraction] = useState("9nUrDQ_REhU6sgcgXFAyfA");
+
   return (
       <div class="background">
         <BrowserRouter>
@@ -15,11 +20,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Menu />} />
             <Route path="/home" element={<Menu />} />
-            <Route path="/Reviews" element={<Reviews />} />
-            <Route path="/Attractions" element={<Attractions />} />
+            <Route path="/Reviews" element={<Reviews attractions={attractions} />} />
+            <Route path="/Attractions" element={<Attractions city={city} />} />
             <Route path="/About" element={<About />} />
-            <Route path="/Cities" element={<Cities />} />
-            <Route path="/Attractions" element={<Attractions />} />
+            <Route path="/Cities" element={<Cities city={city} setCity={setCity} />} />
           </Routes>
         </BrowserRouter>
       </div>
