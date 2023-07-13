@@ -11,6 +11,9 @@
 # production
 /build
 
+/backend/flask_app/__pycache__
+/backend/flask_app/venv
+
 # misc
 .DS_Store
 .env.local
