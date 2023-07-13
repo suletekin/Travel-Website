@@ -1,5 +1,19 @@
 [
         {
+            "geonameid": 4671654,
+            "population": 931830,
+            "name": "Austin",
+            "latitude": 30.26715,
+            "longitude": -97.74306,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-TX",
+                "geonameid": 4736286
+            }
+        },
+        {
             "geonameid": 5110302,
             "population": 2736074,
             "name": "Brooklyn",
@@ -11,6 +25,20 @@
             "division": {
                 "code": "US-NY",
                 "geonameid": 5128638
+            }
+        },
+        {
+            "geonameid": 4460243,
+            "population": 874579,
+            "name": "Charlotte",
+            "latitude": 35.22709,
+            "longitude": -80.84313,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-NC",
+                "geonameid": 4482348
             }
         },
         {
@@ -28,11 +56,39 @@
             }
         },
         {
+            "geonameid": 4509177,
+            "population": 905748,
+            "name": "Columbus",
+            "latitude": 39.96118,
+            "longitude": -82.99879,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-OH",
+                "geonameid": 5165418
+            }
+        },
+        {
             "geonameid": 4684888,
             "population": 1300092,
             "name": "Dallas",
             "latitude": 32.78306,
             "longitude": -96.80667,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-TX",
+                "geonameid": 4736286
+            }
+        },
+        {
+            "geonameid": 4691930,
+            "population": 918915,
+            "name": "Fort Worth",
+            "latitude": 32.72541,
+            "longitude": -97.32085,
             "country": {
                 "code": "US"
             },
@@ -53,6 +109,34 @@
             "division": {
                 "code": "US-TX",
                 "geonameid": 4736286
+            }
+        },
+        {
+            "geonameid": 4259418,
+            "population": 887642,
+            "name": "Indianapolis",
+            "latitude": 39.76838,
+            "longitude": -86.15804,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-IN",
+                "geonameid": 4921868
+            }
+        },
+        {
+            "geonameid": 4160021,
+            "population": 954614,
+            "name": "Jacksonville",
+            "latitude": 30.33218,
+            "longitude": -81.65565,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-FL",
+                "geonameid": 4155751
             }
         },
         {
@@ -86,7 +170,7 @@
         {
             "geonameid": 5128581,
             "population": 8804190,
-            "name": "New York",
+            "name": "New York City",
             "latitude": 40.71427,
             "longitude": -74.00597,
             "country": {
@@ -159,6 +243,20 @@
             "name": "San Diego",
             "latitude": 32.71571,
             "longitude": -117.16472,
+            "country": {
+                "code": "US"
+            },
+            "division": {
+                "code": "US-CA",
+                "geonameid": 5332921
+            }
+        },
+        {
+            "geonameid": 5391959,
+            "population": 864816,
+            "name": "San Francisco",
+            "latitude": 37.77493,
+            "longitude": -122.41942,
             "country": {
                 "code": "US"
             },

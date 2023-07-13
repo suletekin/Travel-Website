@@ -1,0 +1,9 @@
+
+#app.yaml
+runtime: python38
+
+env_variables:
+  CLOUD_SQL_USERNAME: 'dbUser'
+  CLOUD_SQL_PASSWORD: 'cool1234'
+  CLOUD_SQL_DATABASE_NAME: 'travelInfo'
+  CLOUD_SQL_CONNECTION_NAME: 'testdatabase-392302:us-central1:myinstance'
