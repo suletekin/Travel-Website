@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row, Card } from "react-bootstrap";
 import axios from "axios";
+import Pagination from "./Pagination";
 
 class Attractions extends React.Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class Attractions extends React.Component {
       searchCity: "",
       sortOption: "",
       sortOrder: "",
+      currentPage: 1,
+      attractionsPerPage: 6, // Set the number of attractions to display per page
     };
   }
 
@@ -84,35 +87,84 @@ class Attractions extends React.Component {
     this.setState({ filteredAttractions: sortedAttractions });
   };
 
+  getCurrentAttractions = () => {
+    const { filteredAttractions, currentPage, attractionsPerPage } = this.state;
+    const indexOfLastAttraction = currentPage * attractionsPerPage;
+    const indexOfFirstAttraction = indexOfLastAttraction - attractionsPerPage;
+    return filteredAttractions.slice(
+      indexOfFirstAttraction,
+      indexOfLastAttraction
+    );
+  };
+
+  setCurrentPage = (pageNumber) => {
+    this.setState({ currentPage: pageNumber });
+  };
+
   render() {
-    const { filteredAttractions, searchCity, sortOption, sortOrder } =
-      this.state; 
+    const {
+      filteredAttractions,
+      searchCity,
+      sortOption,
+      sortOrder,
+      currentPage,
+      attractionsPerPage,
+    } = this.state;
+    const attractionsToDisplay = this.getCurrentAttractions();
+    const totalAttractions = filteredAttractions.length;
+    const totalPages = Math.ceil(totalAttractions / attractionsPerPage);
 
     return (
       <div className="backgroundAttractions">
         <br />
         <div
-          style={{ border: "10px solid white", padding: "1px", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center",height: "100%",}}>
-          <p style={{fontSize: 50,textAlign: "center", fontWeight: "800", margin: "auto"}}>
+          style={{
+            border: "10px solid white",
+            padding: "1px",
+            backgroundColor: "white",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+          }}
+        >
+          <p
+            style={{
+              fontSize: 50,
+              textAlign: "center",
+              fontWeight: "800",
+              margin: "auto",
+            }}
+          >
             Discover Top-Rated Attractions!
           </p>
         </div>
-        <br/>
+        <br />
         <Container>
           <Row>
             <Col>
               <div className="search-container">
-                <input type="text"
+                <input
+                  type="text"
                   placeholder="Search by City"
                   value={searchCity}
                   onChange={this.handleCitySearch}
                 />
-                <select value={sortOption} onChange={this.handleSortOptionChange} className="sort-dropdownAttractions">
+                <select
+                  value={sortOption}
+                  onChange={this.handleSortOptionChange}
+                  className="sort-dropdownAttractions"
+                >
                   <option value="">Sort by</option>
                   <option value="rating">Rating</option>
                   <option value="name">Name</option>
                 </select>
-                <select value={sortOrder} onChange={this.handleSortOrderChange} disabled={!sortOption} className="sort-dropdownAttractions">
+                <select
+                  value={sortOrder}
+                  onChange={this.handleSortOrderChange}
+                  disabled={!sortOption}
+                  className="sort-dropdownAttractions"
+                >
                   <option value="">Sort order</option>
                   {sortOption === "name" ? (
                     <>
@@ -130,9 +182,14 @@ class Attractions extends React.Component {
             </Col>
           </Row>
           <Row>
-            {filteredAttractions.map((attraction, i) => (
+            {attractionsToDisplay.map((attraction, i) => (
               <Col key={i} xs={12} sm={6} md={4}>
-                <Card style={{ width: "100%", margin: "20px" }} border={"success"} bg={"light"} text={"dark"}>
+                <Card
+                  style={{ width: "100%", margin: "20px" }}
+                  border={"success"}
+                  bg={"light"}
+                  text={"dark"}
+                >
                   <Card.Body>
                     <Card.Title>{attraction.name}</Card.Title>
                     <Card.Img
@@ -159,6 +216,11 @@ class Attractions extends React.Component {
               </Col>
             ))}
           </Row>
+          <Pagination
+            nPages={totalPages}
+            currentPage={currentPage}
+            setCurrentPage={this.setCurrentPage}
+          />
         </Container>
       </div>
     );
@@ -166,4 +228,3 @@ class Attractions extends React.Component {
 }
 
 export default Attractions;
-
