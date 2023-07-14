@@ -3,66 +3,142 @@ import { Col, Container, Row, Card } from "react-bootstrap";
 import axios from "axios";
 
 class Attractions extends React.Component {
-  
   constructor(props) {
     super(props);
 
-    // Access props in the constructor
-    console.log(props.city);
-
-    // Initialize component state if needed
     this.state = {
       attractions: [],
+      filteredAttractions: [],
       error: null,
+      searchCity: "",
+      sortOption: "",
+      sortOrder: "",
     };
   }
-
-  changeCity = (event) => {
-    event.preventDefault();
-    // Handle the click event
-    const name = this.props.city;
-    console.log(name);
-  };
 
   componentDidMount() {
     let config = {
-      method: 'get',
+      method: "get",
       maxBodyLength: Infinity,
-      url: 'https://testdatabase-392302.uc.r.appspot.com/attractions',
-      headers: { }
+      url: "https://testdatabase-392302.uc.r.appspot.com/attractions",
+      headers: {},
     };
-    axios.request(config).then(response => {
-      this.setState({
-        attractions: response.data,
+
+    axios
+      .request(config)
+      .then((response) => {
+        this.setState({
+          attractions: response.data,
+          filteredAttractions: response.data,
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error,
+        });
       });
-    }).catch(error => {
-      this.setState({
-        error,
-      });
-    });
   }
 
+  handleCitySearch = (event) => {
+    const searchCity = event.target.value.toLowerCase();
+
+    this.setState((prevState) => {
+      const filteredAttractions = prevState.attractions.filter((attraction) =>
+        attraction.cityID.toLowerCase().includes(searchCity)
+      );
+
+      return {
+        filteredAttractions,
+        searchCity,
+      };
+    });
+  };
+
+  handleSortOptionChange = (event) => {
+    const sortOption = event.target.value;
+    this.setState({ sortOption });
+    this.sortAttractions(sortOption, this.state.sortOrder);
+  };
+
+  handleSortOrderChange = (event) => {
+    const sortOrder = event.target.value;
+    this.setState({ sortOrder });
+    this.sortAttractions(this.state.sortOption, sortOrder);
+  };
+
+  sortAttractions = (sortOption, sortOrder) => {
+    let sortedAttractions = [...this.state.filteredAttractions];
+
+    if (sortOption === "rating") {
+      sortedAttractions.sort((a, b) =>
+        sortOrder === "asc" ? a.Rating - b.Rating : b.Rating - a.Rating
+      );
+    } else if (sortOption === "name") {
+      sortedAttractions.sort((a, b) =>
+        sortOrder === "asc"
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name)
+      );
+    }
+
+    this.setState({ filteredAttractions: sortedAttractions });
+  };
+
   render() {
+    const { filteredAttractions, searchCity, sortOption, sortOrder } =
+      this.state; 
+
     return (
       <div className="backgroundAttractions">
         <br />
-        <div style={{border: "10px solid white", padding: "1px", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", height: "100%",}}>
-        <p style={{ fontSize: 50, textAlign: "center", fontWeight: "800", margin: "auto"}}> Discover Top-Rated Attractions!</p>
+        <div
+          style={{ border: "10px solid white", padding: "1px", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center",height: "100%",}}>
+          <p style={{fontSize: 50,textAlign: "center", fontWeight: "800", margin: "auto"}}>
+            Discover Top-Rated Attractions!
+          </p>
         </div>
-        <br />
+        <br/>
         <Container>
           <Row>
-            {this.state.attractions.map((attraction, i) => (
+            <Col>
+              <div className="search-container">
+                <input type="text"
+                  placeholder="Search by City"
+                  value={searchCity}
+                  onChange={this.handleCitySearch}
+                />
+                <select value={sortOption} onChange={this.handleSortOptionChange} className="sort-dropdownAttractions">
+                  <option value="">Sort by</option>
+                  <option value="rating">Rating</option>
+                  <option value="name">Name</option>
+                </select>
+                <select value={sortOrder} onChange={this.handleSortOrderChange} disabled={!sortOption} className="sort-dropdownAttractions">
+                  <option value="">Sort order</option>
+                  {sortOption === "name" ? (
+                    <>
+                      <option value="asc">A-Z</option>
+                      <option value="desc">Z-A</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="asc">Low to High</option>
+                      <option value="desc">High to Low</option>
+                    </>
+                  )}
+                </select>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            {filteredAttractions.map((attraction, i) => (
               <Col key={i} xs={12} sm={6} md={4}>
-                <Card
-                  style={{ width: "100%", margin: "20px" }}
-                  border={"success"}
-                  bg={"light"}
-                  text={"dark"}
-                >
+                <Card style={{ width: "100%", margin: "20px" }} border={"success"} bg={"light"} text={"dark"}>
                   <Card.Body>
                     <Card.Title>{attraction.name}</Card.Title>
-                    <Card.Img src={attraction.image_url} style={{ width: "200px" }} />
+                    <Card.Img
+                      src={attraction.image_url}
+                      style={{ width: "200px" }}
+                    />
                     <Card.Text>
                       <ul>
                         <li>Rating: {attraction.Rating}</li>
@@ -72,7 +148,9 @@ class Attractions extends React.Component {
                           <a href="Cities">City: {attraction.cityID}</a>
                         </li>
                         <li>
-                          <a href="Reviews" onClick={this.changeCity}>Reviews</a>
+                          <a href="Reviews" onClick={this.changeCity}>
+                            Reviews
+                          </a>
                         </li>
                       </ul>
                     </Card.Text>
@@ -88,3 +166,4 @@ class Attractions extends React.Component {
 }
 
 export default Attractions;
+
