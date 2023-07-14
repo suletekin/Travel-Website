@@ -9,10 +9,10 @@ class Reviews extends React.Component {
 
     this.state = {
       reviews: [],
-      sortedReviews: [],
       error: null,
       searchQuery: "",
       sortOption: "",
+      reviewID: "0oSSjekU-3GR8gselReWnA",
       currentPage: 1,
       reviewsPerPage: 6,
     };
@@ -22,7 +22,8 @@ class Reviews extends React.Component {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: "https://testdatabase-392302.uc.r.appspot.com/reviews",
+      url: "https://testdatabase-392302.uc.r.appspot.com/reviews?" + "search=" + this.state.searchQuery + 
+        "&" + "sort=" + this.state.sortOption + "&reviewID=" + this.state.reviewID,
       headers: {},
     };
 
@@ -41,58 +42,66 @@ class Reviews extends React.Component {
       });
   }
 
+  changeAPI() {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: "https://testdatabase-392302.uc.r.appspot.com/reviews?" + "search=" + this.state.searchQuery + 
+        "&" + "sort=" + this.state.sortOption + "&reviewID=" + this.state.reviewID,
+      headers: {},
+    };
+    console.log(config.url);
+    axios
+      .request(config)
+      .then((response) => {
+        this.setState({
+          reviews: response.data,
+
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error,
+        });
+      });
+  }
+
   handleSearchQueryChange = (event) => {
     const searchQuery = event.target.value;
-    this.setState({ searchQuery });
+    this.setState({ searchQuery: searchQuery }, () => {
+      console.log(this.state.searchQuery);
+      this.changeAPI();
+    });
   };
 
   handleSortOptionChange = (event) => {
     const sortOption = event.target.value;
-    this.setState({ sortOption });
-    this.sortReviews(sortOption);
+    this.setState({ sortOption: sortOption }, () => {
+      console.log(this.state.sortOption);
+      this.changeAPI();
+    });
+  };
+
+  handleFilterChange = (event) => {
+    const filterChange = event.target.value;
+    //this.setState({ searchCity: searchCity }, () => {
+      //console.log(this.state.searchCity);
+      //this.changeAPI();
+    //});
   };
 
   handlePageChange = (pageNumber) => {
     this.setState({ currentPage: pageNumber });
   };
 
-  sortReviews = (sortOption) => {
-    this.setState((prevState) => {
-      const { reviews } = prevState;
-
-      let sortedReviews = [...reviews];
-
-      if (sortOption === "ratingsLowToHigh") {
-        sortedReviews.sort((a, b) => a.Rating - b.Rating);
-      } else if (sortOption === "ratingsHighToLow") {
-        sortedReviews.sort((a, b) => b.Rating - a.Rating);
-      }
-
-      return {
-        sortedReviews,
-        sortOption,
-      };
-    });
-  };
-
-  filterReviews = () => {
-    const { reviews, searchQuery } = this.state;
-
-    return reviews.filter((review) =>
-      review.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  };
 
   render() {
-    const { sortedReviews, sortOption, currentPage, reviewsPerPage } =
-      this.state;
 
-    const filteredReviews = this.filterReviews();
 
     // Pagination Logic
-    const indexOfLastReview = currentPage * reviewsPerPage;
-    const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
-    const currentReviews = filteredReviews.slice(
+    const indexOfLastReview = this.state.currentPage * this.state.reviewsPerPage;
+    const indexOfFirstReview = indexOfLastReview - this.state.reviewsPerPage;
+    const currentReviews = this.state.reviews.slice(
       indexOfFirstReview,
       indexOfLastReview
     );
@@ -134,19 +143,17 @@ class Reviews extends React.Component {
                   onChange={this.handleSearchQueryChange}
                 />
                 <select
-                  value={sortOption}
                   onChange={this.handleSortOptionChange}
                   className="sort-dropdownReviews"
                 >
                   <option value="">Sort by</option>
-                  <option value="ratingsLowToHigh">Ratings: Low to High</option>
-                  <option value="ratingsHighToLow">Ratings: High to Low</option>
+                  <option value="Rating">Rating</option>
                 </select>
               </div>
             </Col>
           </Row>
           <Row>
-            {currentReviews.map((review, i) => (
+            {this.state.reviews.map((review, i) => (
               <Col key={i} xs={12} sm={6} md={4}>
                 <Card
                   style={{ width: "100%", margin: "20px" }}
@@ -175,8 +182,8 @@ class Reviews extends React.Component {
             ))}
           </Row>
           <Pagination
-            nPages={Math.ceil(filteredReviews.length / reviewsPerPage)}
-            currentPage={currentPage}
+            nPages={Math.ceil(this.state.reviews.length / this.state.reviewsPerPage)}
+            currentPage={this.state.currentPage}
             setCurrentPage={this.handlePageChange}
           />
         </Container>
