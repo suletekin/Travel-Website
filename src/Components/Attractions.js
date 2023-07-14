@@ -86,7 +86,7 @@ class Attractions extends React.Component {
 
   render() {
     const { filteredAttractions, searchCity, sortOption, sortOrder } =
-      this.state;
+      this.state; 
 
     return (
       <div className="backgroundAttractions">

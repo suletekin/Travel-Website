@@ -3,7 +3,7 @@ import { Col, Container, Row, Card } from "react-bootstrap";
 import axios from "axios";
 
 class Reviews extends React.Component {
-  constructor(props) {
+  constructor(props) { 
     super(props);
 
     this.state = {
