@@ -9,6 +9,7 @@ class Attractions extends React.Component {
 
     this.state = {
       attractions: [],
+      filteredAttractions: [],
       error: null,
       searchCity: "Chicago",
       searchOption: "",
