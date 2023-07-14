@@ -63,5 +63,15 @@
     font-size: 14px; /* Adjust font size as needed */
     margin-left: 8px; /* Add margin as needed */
   }
+
+  .sort-dropdownCities{
+    background-color: #116a70; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Adjust padding as needed */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add border-radius for rounded corners */
+    font-size: 14px; /* Adjust font size as needed */
+    margin-left: 8px; /* Add margin as needed */
+  }
   
 
