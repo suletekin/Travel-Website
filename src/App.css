@@ -8,12 +8,12 @@
 }
 
 .backgroundReviews {
-    background: url('./Components/Photos/peakMountain.jpg');
+    background: url('./Components/Photos/bike.jpg');
     min-height: 65pc;
     font-family: 'Bitter', serif;
     color: #A9907E;
     background-repeat: no-repeat;
-    background-size: 100% auto
+    background-size: 125%;
 }
 
 .backgroundAbout{
@@ -43,4 +43,25 @@
     font-family: 'Bitter', serif;
     color: #27374D;
 }
+
+.sort-dropdownAttractions{
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Adjust padding as needed */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add border-radius for rounded corners */
+    font-size: 14px; /* Adjust font size as needed */
+    margin-left: 8px; /* Add margin as needed */
+  }
+
+  .sort-dropdownReviews{
+    background-color: #dfae45; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Adjust padding as needed */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add border-radius for rounded corners */
+    font-size: 14px; /* Adjust font size as needed */
+    margin-left: 8px; /* Add margin as needed */
+  }
+  
 
