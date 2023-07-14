@@ -194,6 +194,11 @@ def get_reviews():
     if sort:
         print(sort)
         query = sort_dict(query, key=sort)
+
+    #filtering
+    reviewID = request.args.get("reviewID", None, type=str)
+    if reviewID:
+        query = filter_dict_eq(query, 'reviewID', reviewID)
     
     return jsonify(query)
 

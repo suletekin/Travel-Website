@@ -25,7 +25,7 @@ function About() {
                                 <Card.Title>Adarsh Ashok</Card.Title>
                                 <Card.Text>Frontend Developer, Class of 2026 UTCS</Card.Text>
                                 <Card.Text>Frontend Developer: I managed the design and basic functionality of the website. I collaborated with another frontend developer to use React integrated with Bootstrap.</Card.Text>
-                                <Card.Text># of Commits: 4, # of Issues: 3, # of Unit Tests: 0</Card.Text>
+                                <Card.Text># of Commits: 20, # of Issues: 15, # of Unit Tests: 9</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -85,7 +85,7 @@ function About() {
                                 <Card.Title>Project Stats</Card.Title>
                                 <Card.Text>
                                     <h2>GitLab and Postman: </h2>
-                                    <li><a href="https://crimson-comet-979094.postman.co/workspace/triptrekker~2c44ba28-7f11-46e6-abc6-20d8e504aa3a/collection/28202650-cdc97c95-3697-4013-8fd0-ed08eb71b5d8%22%3E">Postman API</a></li>
+                                    <li><a href="https://documenter.getpostman.com/view/28202650/2s93zFYevj">Postman API</a></li>
                                     <li><a href="https://gitlab.com/austincnguyen/trip-trekker/-/issues%22%3E">GitLab Issue Tracker</a></li>
                                     <li><a href="https://gitlab.com/austincnguyen/trip-trekker%22%3E">GitLab Repo</a></li>
                                     <li><a href="https://gitlab.com/austincnguyen/trip-trekker/-/wikis/Technical-Report-Phase-2%22%3E">GitLab Wiki</a></li>
