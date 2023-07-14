@@ -1,9 +1,10 @@
 #main.py
 from flask import Flask, jsonify, request
 from db import get_cities, get_attractions, get_reviews
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/cities', methods=['GET'])
 def cities():
