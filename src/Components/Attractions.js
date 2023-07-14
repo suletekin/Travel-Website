@@ -11,11 +11,11 @@ class Attractions extends React.Component {
       attractions: [],
       filteredAttractions: [],
       error: null,
-      searchCity: "",
-      sortOption: "",
+      searchCity: "Chicago",
+      searchOption: "",
       sortOrder: "",
       currentPage: 1,
-      attractionsPerPage: 6, // Set the number of attractions to display per page
+      citiesPerPage: 6,
     };
   }
 
@@ -23,7 +23,8 @@ class Attractions extends React.Component {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: "https://testdatabase-392302.uc.r.appspot.com/attractions",
+      url: "https://testdatabase-392302.uc.r.appspot.com/attractions?cityID=" + this.state.searchCity + 
+        "&search=" + this.state.searchOption + "&sort=" + this.state.sortOrder,
       headers: {},
     };
 
@@ -32,7 +33,32 @@ class Attractions extends React.Component {
       .then((response) => {
         this.setState({
           attractions: response.data,
-          filteredAttractions: response.data,
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error,
+        });
+        console.log("hi");
+      });
+  }
+
+  changeAPI() {
+    console.log(this.state.searchCity);
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: "https://testdatabase-392302.uc.r.appspot.com/attractions?cityID=" + this.state.searchCity + 
+        "&search=" + this.state.searchOption + "&sort=" + this.state.sortOrder,
+      headers: {},
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        this.setState({
+          attractions: response.data,
+
         });
       })
       .catch((error) => {
@@ -43,58 +69,27 @@ class Attractions extends React.Component {
   }
 
   handleCitySearch = (event) => {
-    const searchCity = event.target.value.toLowerCase();
-
-    this.setState((prevState) => {
-      const filteredAttractions = prevState.attractions.filter((attraction) =>
-        attraction.cityID.toLowerCase().includes(searchCity)
-      );
-
-      return {
-        filteredAttractions,
-        searchCity,
-      };
+    const searchCity = event.target.value;
+    this.setState({ searchCity: searchCity }, () => {
+      console.log(this.state.searchCity);
+      this.changeAPI();
     });
   };
 
   handleSortOptionChange = (event) => {
     const sortOption = event.target.value;
-    this.setState({ sortOption });
-    this.sortAttractions(sortOption, this.state.sortOrder);
+    this.setState({ sortOrder: sortOption }, () => {
+      console.log(this.state.searchCity);
+      this.changeAPI();
+    });
   };
 
-  handleSortOrderChange = (event) => {
-    const sortOrder = event.target.value;
-    this.setState({ sortOrder });
-    this.sortAttractions(this.state.sortOption, sortOrder);
-  };
-
-  sortAttractions = (sortOption, sortOrder) => {
-    let sortedAttractions = [...this.state.filteredAttractions];
-
-    if (sortOption === "rating") {
-      sortedAttractions.sort((a, b) =>
-        sortOrder === "asc" ? a.Rating - b.Rating : b.Rating - a.Rating
-      );
-    } else if (sortOption === "name") {
-      sortedAttractions.sort((a, b) =>
-        sortOrder === "asc"
-          ? a.name.localeCompare(b.name)
-          : b.name.localeCompare(a.name)
-      );
-    }
-
-    this.setState({ filteredAttractions: sortedAttractions });
-  };
-
-  getCurrentAttractions = () => {
-    const { filteredAttractions, currentPage, attractionsPerPage } = this.state;
-    const indexOfLastAttraction = currentPage * attractionsPerPage;
-    const indexOfFirstAttraction = indexOfLastAttraction - attractionsPerPage;
-    return filteredAttractions.slice(
-      indexOfFirstAttraction,
-      indexOfLastAttraction
-    );
+  handleSearchOptionChange = (event) => {
+    const searchOption = event.target.value;
+    this.setState({ searchOption: searchOption }, () => {
+      console.log(this.state.searchCity);
+      this.changeAPI();
+    });
   };
 
   setCurrentPage = (pageNumber) => {
@@ -102,94 +97,65 @@ class Attractions extends React.Component {
   };
 
   render() {
-    const {
-      filteredAttractions,
-      searchCity,
-      sortOption,
-      sortOrder,
-      currentPage,
-      attractionsPerPage,
-    } = this.state;
-    const attractionsToDisplay = this.getCurrentAttractions();
-    const totalAttractions = filteredAttractions.length;
-    const totalPages = Math.ceil(totalAttractions / attractionsPerPage);
+    const indexOfLastCity = this.state.currentPage * this.state.citiesPerPage;
+    const indexOfFirstCity = indexOfLastCity - this.state.citiesPerPage;
+    const currentAttractions = this.state.attractions.slice(indexOfFirstCity, indexOfLastCity);
+    const totalPages = Math.ceil(this.state.attractions.length / this.state.citiesPerPage);
 
     return (
       <div className="backgroundAttractions">
         <br />
         <div
-          style={{
-            border: "10px solid white",
-            padding: "1px",
-            backgroundColor: "white",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}
-        >
-          <p
-            style={{
-              fontSize: 50,
-              textAlign: "center",
-              fontWeight: "800",
-              margin: "auto",
-            }}
-          >
+          style={{ border: "10px solid white", padding: "1px", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center",height: "100%",}}>
+          <p style={{fontSize: 50,textAlign: "center", fontWeight: "800", margin: "auto"}}>
             Discover Top-Rated Attractions!
           </p>
         </div>
-        <br />
+        <br/>
         <Container>
           <Row>
             <Col>
               <div className="search-container">
-                <input
-                  type="text"
-                  placeholder="Search by City"
-                  value={searchCity}
-                  onChange={this.handleCitySearch}
+                <input type="text"
+                  placeholder="Search"
+                  value={this.state.searchOption}
+                  onChange={this.handleSearchOptionChange}
                 />
-                <select
-                  value={sortOption}
-                  onChange={this.handleSortOptionChange}
-                  className="sort-dropdownAttractions"
-                >
+                <select onChange={this.handleSortOptionChange} className="sort-dropdownAttractions">
                   <option value="">Sort by</option>
-                  <option value="rating">Rating</option>
+                  <option value="Rating">Rating</option>
                   <option value="name">Name</option>
                 </select>
-                <select
-                  value={sortOrder}
-                  onChange={this.handleSortOrderChange}
-                  disabled={!sortOption}
-                  className="sort-dropdownAttractions"
-                >
-                  <option value="">Sort order</option>
-                  {sortOption === "name" ? (
-                    <>
-                      <option value="asc">A-Z</option>
-                      <option value="desc">Z-A</option>
-                    </>
-                  ) : (
-                    <>
-                      <option value="asc">Low to High</option>
-                      <option value="desc">High to Low</option>
-                    </>
-                  )}
+                <select onChange={this.handleCitySearch} className="sort-dropdownAttractions">
+                  <option value="Chicago">Chicago</option>
+                  <option value="Austin">Austin</option>
+                  <option value="Brooklyn">Brooklyn</option>
+                  <option value="Charlotte">Charlotte</option>
+                  <option value="Columbus">Columbus</option>
+                  <option value="Dallas">Dallas</option>
+                  <option value="Fort Worth">Fort Worth</option>
+                  <option value="Houston">Houston</option>
+                  <option value="Indianapolis">Indianapolis</option>
+                  <option value="Jacksonville">Jacksonville</option>
+                  <option value="Los Angeles">Los Angeles</option>
+                  <option value="Manhattan">Manhattan</option>
+                  <option value="New York">New York</option>
+                  <option value="Philadelphia">Philadelphia</option>
+                  <option value="Phoenix">Phoenix</option>
+                  <option value="Queens">Queens</option>
+                  <option value="San Antonio">San Antonio</option>
+                  <option value="San Diego">San Diego</option>
+                  <option value="San Francisco">San Francisco</option>
+                  <option value="San Jose">San Jose</option>
+                  <option value="The Bronx">The Bronx</option>
                 </select>
               </div>
             </Col>
           </Row>
           <Row>
-            {attractionsToDisplay.map((attraction, i) => (
+            {currentAttractions.map((attraction, i) => (
               <Col key={i} xs={12} sm={6} md={4}>
-                <Card
-                  style={{ width: "100%", margin: "20px" }}
-                  border={"success"}
-                  bg={"light"}
-                  text={"dark"}
-                >
+                <Card style={{ width: "100%", margin: "20px" }} border={"success"} bg={"light"} text={"dark"}>
                   <Card.Body>
                     <Card.Title>{attraction.name}</Card.Title>
                     <Card.Img
@@ -217,9 +183,9 @@ class Attractions extends React.Component {
             ))}
           </Row>
           <Pagination
-            nPages={totalPages}
-            currentPage={currentPage}
-            setCurrentPage={this.setCurrentPage}
+              nPages={totalPages}
+              currentPage={this.state.currentPage}
+              setCurrentPage={this.setCurrentPage}
           />
         </Container>
       </div>
@@ -228,3 +194,4 @@ class Attractions extends React.Component {
 }
 
 export default Attractions;
+
