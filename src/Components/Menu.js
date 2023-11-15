@@ -22,6 +22,15 @@ function Menu() {
                     <Button variant="secondary" href="/Attractions">Attractions</Button>
                     <Button variant="secondary" href="/About">About</Button>
             </ButtonGroup>
+
+            <div style={{border: "10px solid white", padding: "1px", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center", height: "100%",}}>
+                <p style={{fontSize: 30, textAlign: "center", fontWeight: "800", margin: "auto"}}>Embark on a thrilling journey through 
+                enchanting cities, captivating attractions, and raving reviews, 
+                as we unlock the world's hidden gems for the ultimate travel experience!</p>
+            </div>
+
+
+
         </div>
 
     );
