@@ -56,7 +56,7 @@ The API defines three models using SQLAlchemy: City, Attraction, and AttractionR
 - Visual Studio Code - the text editor used for modifying code 
 - GitLab - repository location for project 
 - NameCheap - location for where domain name was bought
-- AWS - cloud computing service where weebsite was hosted (not currently hosted)
+- AWS - cloud computing service where website was hosted (not currently hosted)
 ### Data Sources
 - https://docs.developer.yelp.com
 - https://developers.google.com/maps 
